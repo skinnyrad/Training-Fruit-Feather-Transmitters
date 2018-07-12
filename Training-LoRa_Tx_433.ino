@@ -8,9 +8,12 @@
 // 3 - Spread spectrum; specify start and stop freq and hop interval
 // 4 - Spread Spectrum Burst - This option allows you to turn your spread spectrum signal
 //                            off and on like a burst transmitter.
+// 5 - Spread Spectrum, Frequency Hoping, Burst - Allows the user to do everything entailed in
+//                                           option 4, but the signal will randomly jump
+//                                           between two specified frequencies.
 
 //Choose the number of the option you want.
-int WhatToDo = 4;
+int WhatToDo = 5;
 
 //FOR OPTION 1 - Single Set Frequency
 //Center frequency must be in MHz with a frequency between 363MHz AND 569MHz
@@ -26,7 +29,7 @@ int burstInterval = 2000;
 
 //FOR OPTION 3 - Spread Spectrum
 //The start frequency for the spread in MHz between 363MHz AND 569MHz
-float startFrequency = 431.0;
+float startFrequency = 435.0;
 //The stop frequency for the spread in MHz between 363MHz AND 569MHz
 float stopFrequency = 437.0;
 //How often should the signal jump to another frequency? Time in milliseconds
@@ -35,6 +38,20 @@ int hopInterval = 0;
 //FOR OPTION 4 - Spread Spectrum Burst
 //Make sure all of the OPTION 3 variables are assigned and the burstLength and
 //burstInterval variables from OPTION 2.
+
+//FOR OPTION 5 - Spread Spectrum, Frequency Hoping, Burst (AKA the kitchen sink)
+//Fill out hopInterval in OPTION 3. Fill out burstLength and burstInterval variables in
+//OPTION 2. Also, fill out the variables below.
+
+//How wide should the spread spectrum signal be? Bandwidth is in MHz.
+float signalBandwidth = 2;
+
+//As the spread spectrum signal jumps around, what is the upper most frequency it should
+//bound itself by. The limit is 569MHz. The number must be in MHz.
+float upperLimit = 440.0;
+
+//Define the lower limit as well
+float lowerLimit = 420.0;
 
 //SIGNAL AMPLITUDE
 //Specify an amplitude level between 5(weakest) and 23(strongest). This transmitter
@@ -53,6 +70,9 @@ uint8_t data[] = "0";
 
 //Helps with timing delays without using Delay function
 unsigned long startTime = 0;
+
+//Helps with the selection of frequencies in OPTION 5
+float randomFreq;
 
 // Single instance of the radio driver
 RH_RF95 rf95(RFM95_CS, RFM95_INT);
@@ -149,5 +169,29 @@ void loop()
       rf95.waitPacketSent();
     }
   }
-}
 
+  //Options 5
+  else if(WhatToDo == 5)
+  {
+    //Delay transmitting for the time specified in burstInterval
+    delay (burstInterval);
+    startTime = millis();
+
+    //Calcutes a random frequency between the lower and upper limits specified
+    randomFreq=(random(lowerLimit*10,upperLimit*10))/10.0;
+    
+    //Transmit for the amount of time specified in burstLength
+    while(millis()<=startTime+burstLength)
+    {
+      //During the transmission time specified in burstLength, wait the amount of time
+      //specified in hopInterval when switching frequencies.
+      delay(hopInterval);
+
+      //Sets the frequency using the bandwidth specified and the frequency limits
+      rf95.setFrequency((random((randomFreq-(signalBandwidth/2))*10,(randomFreq+(signalBandwidth/2))*10))/10.0);
+      
+      rf95.send(data, sizeof(data));
+      rf95.waitPacketSent();
+    }
+  }
+}
