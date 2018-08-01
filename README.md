@@ -1,8 +1,11 @@
-# Training Fruit LoRa 433 MHz
-This can be used to simulate different training scenarios for techs using the 433MHz Adafruit Feather LoRa unit (Product ID: 3079)
-https://www.adafruit.com/product/3079
+# Training Fruit Feather Transmitters
+The Adafruit Feather is a fantastic microcontroller and when coupled with a variety of transmitters makes an impressive training aid. The code found in this repository covers four different models of Feather Transmitters:
+Feather 32u4 RFM96 LoRa Radio - 433MHz  https://www.adafruit.com/product/3079
+Feather 32u4 RFM69HCW - 433MHz          https://www.adafruit.com/product/3077
+Feather 32u4 RFM96 LoRa Radio - 900MHz  https://www.adafruit.com/product/3078
+Feather 32u4 RFM69HCW - 900MHz          https://www.adafruit.com/product/3076
 
-The transmitter can be given five different scenarios.
+These transmitters can be given five different scenarios.
 1. Single Continuous Transmission
 2. Burst
 3. Spread Spectrum
