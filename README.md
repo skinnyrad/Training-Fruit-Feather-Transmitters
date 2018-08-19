@@ -23,3 +23,5 @@ How-To article can be found here: http://skinnyrd.com/using-the-adafruit-feather
 The WiFi transmitter, M0 WiFi ATSAMD21+ATWINC1500, can be given 2 scenarios.
 1. Burst
 2. Randomized Burst
+
+How-To for the WiFi transmitter can be found here: http://skinnyrd.com/wifi-training-transmitter/
