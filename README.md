@@ -21,4 +21,5 @@ These transmitters, minus the WiFi, can be given five different scenarios.
 How-To article can be found here: http://skinnyrd.com/using-the-adafruit-feather-for-fun-and-training/
 
 The WiFi transmitter, M0 WiFi ATSAMD21+ATWINC1500, can be given 2 scenarios.
-1. Burst 
+1. Burst
+2. Randomized Burst
