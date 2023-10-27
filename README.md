@@ -1,5 +1,5 @@
 # Training Fruit Feather Transmitters
-The Adafruit Feather is a fantastic microcontroller and when coupled with a variety of transmitters makes an impressive training aid. The code found in this repository covers four different models of Feather Transmitters:
+The Adafruit Feather is a fantastic microcontroller and when coupled with a variety of transmitters makes an impressive training aid. The code found in this repository covers five different models of Feather Transmitters:
 
 Feather M0 WiFi ATSAMD21+ATWINC1500 https://www.adafruit.com/product/3010
 
