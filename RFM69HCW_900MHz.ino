@@ -93,7 +93,7 @@ void setup()
   }
 
   //Sets the power
-  rf69.setTxPower(14, true);
+  rf69.setTxPower(amplitude, true);
 }
 
 void loop()
