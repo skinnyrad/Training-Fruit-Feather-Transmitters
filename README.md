@@ -25,3 +25,5 @@ The WiFi transmitter, M0 WiFi ATSAMD21+ATWINC1500, can be given 2 scenarios.
 2. Randomized Burst
 
 How-To for the WiFi transmitter can be found here: http://skinnyrd.com/wifi-training-transmitter/
+
+## RFM69 RP2040 Notes
