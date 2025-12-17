@@ -79,26 +79,6 @@ int amplitude = 14;
   #define RFM69_INT   3  //
   #define RFM69_RST   2  // "A"
 
-#elif defined(ESP8266)  // ESP8266 feather w/wing
-  #define RFM69_CS    2  // "E"
-  #define RFM69_INT  15  // "B"
-  #define RFM69_RST  16  // "D"
-
-#elif defined(ARDUINO_ADAFRUIT_FEATHER_ESP32S2) || defined(ARDUINO_NRF52840_FEATHER) || defined(ARDUINO_NRF52840_FEATHER_SENSE)
-  #define RFM69_CS   10  // "B"
-  #define RFM69_INT   9  // "A"
-  #define RFM69_RST  11  // "C"
-
-#elif defined(ESP32)  // ESP32 feather w/wing
-  #define RFM69_CS   33  // "B"
-  #define RFM69_INT  27  // "A"
-  #define RFM69_RST  13
-
-#elif defined(ARDUINO_NRF52832_FEATHER)  // nRF52832 feather w/wing
-  #define RFM69_CS   11  // "B"
-  #define RFM69_INT  31  // "C"
-  #define RFM69_RST   7  // "A"
-
 #endif
 
 //Test Data to be sent. This data can be many characters but it can affect
@@ -230,4 +210,5 @@ void loop()
     }
   }
 }
+
 
