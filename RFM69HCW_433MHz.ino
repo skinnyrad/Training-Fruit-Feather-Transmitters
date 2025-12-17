@@ -83,7 +83,7 @@ int amplitude = 14;
 
 //Test Data to be sent. This data can be many characters but it can affect
 //transmission time.
-uint8_t data[] = "010011111111100011";
+uint8_t data[] = "0";
 
 //Helps with timing delays without using Delay function
 unsigned long startTime = 0;
@@ -210,6 +210,7 @@ void loop()
     }
   }
 }
+
 
 
 
